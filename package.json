@@ -1,0 +1,27 @@
+{
+  "name": "employeemanagement",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JahsonKim/EmployeeManagement.git"
+  },
+  "author": "brighton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JahsonKim/EmployeeManagement/issues"
+  },
+  "homepage": "https://github.com/JahsonKim/EmployeeManagement#readme"
+}
