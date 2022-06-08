@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var con = require('../connect');
 
 
 var EmployeeHandler = function () {
@@ -19,11 +20,22 @@ EmployeeHandler.prototype.attach = function (router) {
          * Get the employee data from the database here
          * return the data to the view in the statement below
          */
-
-
-        response.render('index', {
-            /* return employee data here to the page */
+        var query ="SELECT* FROM employees";
+        con.query(query,function(error,data){
+        var d=JSON.parse(JSON.stringify(data));
+        if(error)
+        {
+            throw error;
+        }
+        else
+        {
+            response.render('index', {
+                /* return employee data here to the page */
+                employeeData:d,tasks:[],projects:[]
+            });
+        }
         });
+
     });
 
     /**
