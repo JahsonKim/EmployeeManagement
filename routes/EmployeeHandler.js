@@ -48,9 +48,7 @@ EmployeeHandler.prototype.attach = function (router) {
      * Other routes under employees will go below here
      */
     router.get('/new-Employee', function (request, response) { 
-        response.render('new-Employee', {
-            
-        });
+        response.render('new-Employee');
     });
     // posting data of new employee in the database
     router.post('/Addnew', function (request, response){
@@ -73,7 +71,9 @@ EmployeeHandler.prototype.attach = function (router) {
         });
         response.render('new-Employee');
     });
-
+    router.get('/employees',function(request,response){
+        response.render('employees')
+    });
 
 
 }
