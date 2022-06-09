@@ -30,7 +30,8 @@ app.use(bodyParser.urlencoded({
 //This sets the default route to employee list.
 app.get('/', (req, res) => {
     res.redirect('/employee-list'); 
-}); 
+});
+
 
 // This is our first external route in the routes folder
 //Other routes will be added here
