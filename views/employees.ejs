@@ -285,6 +285,21 @@
                     <div class="flex-grow-1 ms-3">
                       <h6 class="nav-title">All-departments-in-this space.</h6>
                       <p class="nav-text text-body">departments-details.</p>
+                      <table class="table">
+                        <tr>
+                          <th scope="col" class="table-text-end">Department ID</th>
+                          <th scope="col" class="table-text-end">Department Name</th>
+                        </tr>
+                        <tbody>
+                          <% for(var i=0;i<departmentData.length;i++){
+                            %>
+                            <tr>
+                              <td class="table-text-end"><%= departmentData[i].departmentId %></td>
+                              <td class="table-text-end"><%= departmentData[i].departmentName %></td>
+                            </tr>
+                          <% }%>;
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </a>
@@ -306,6 +321,21 @@
                     <div class="flex-grow-1 ms-3">
                       <h6 class="nav-title">Managers</h6>
                       <p class="nav-text text-body">key leaders of the departments.</p>
+                      <table class="table">
+                        <tr>
+                          <th scope="col" class="table-text-end">Department Name</th>
+                          <th scope="col" class="table-text-end">Department Manager</th>
+                        </tr>
+                        <tbody>
+                         <% for(var i=0;i<managerData.length;i++){
+                           %>
+                           <tr>
+                            <td class="table-text-end"><%= managerData[i].departmentName%></td>
+                            <td class="table-text-end"><%= managerData[i].manager%></td>
+                          </tr>
+                         <%}%>;
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </a>
@@ -862,7 +892,37 @@
             <!-- End Row -->
           </div>
         </div>
-  
+        <!-- Table -->
+               <table class="table"> 
+                
+                  <tr>
+                    <th scope="col" class="table-text-end">employeeId</th>
+                    <th scope="col" class="table-text-end">employeeName</th>
+                    <th scope="col" class="table-text-end">ssn_number</th>
+                    <th scope="col" class="table-text-end">email</th>
+                    <th scope="col" class="table-text-end">phone_number</th>
+                    <th scope="col" class="table-text-end">manager</th>
+                    <th scope="col" class="table-text-end">roleId</th>
+                    <th scope="col" class="table-text-end">departmentId</th>
+                  </tr>
+                <tbody>
+                  <% for(var i=0;i<employeeData.length;i++){  
+                    %>
+                    <tr>
+                        <td class="table-text-end"><%= employeeData[i].employeeId %></td>
+                        <td class="table-text-end"><%= employeeData[i].employeeName %></td>
+                        <td class="table-text-end"><%= employeeData[i].ssn_number %></td>
+                        <td class="table-text-end"><%= employeeData[i].email %></td>
+                        <td class="table-text-end"><%= employeeData[i].phone_number %></td>
+                        <td class="table-text-end"><%= employeeData[i].manager %></td>
+                        <td class="table-text-end"><%= employeeData[i].roleId %></td>
+                        <td class="table-text-end"><%= employeeData[i].departmentId %></td>
+                        <td class="table-text-end"> </td>
+                    </tr>
+                    <%   }%>;
+                </tbody>
+              </table>
+              <!-- End Table -->
              
         <!-- End Clients -->
       </main>
