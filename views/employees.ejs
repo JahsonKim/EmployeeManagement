@@ -357,6 +357,19 @@
                     <div class="flex-grow-1 ms-3">
                       <h6 class="nav-title">Major Roles</h6>
                       <p class="nav-text text-body">main roles played by employees.</p>
+                      <table class="table">
+                        <th scope="col" class="table-text-end">Role Id</th>
+                        <th scope="col" class="table-text-end">Role Name</th>
+                        <tbody>
+                         <% for(var i=0;i<rolesData.length;i++){
+                           %>
+                            <tr>
+                              <td class="table-text-end"><%= rolesData[i].roleId%></td>
+                              <td class="table-text-end"><%= rolesData[i].roleName%></td>
+                            </tr>
+                         <%} %>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </a>

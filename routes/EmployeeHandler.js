@@ -88,16 +88,25 @@ EmployeeHandler.prototype.attach = function (router) {
 
                     });
                 },
-                function (employees, departments, done) {
+                function(managers,departments,done){
+                    var query ="SELECT* FROM roles";
+                    con.query(query,function(error,data){
+                        var r=JSON.parse(JSON.stringify(data));
+
+                        done(error, r, managers,departments)
+                    });
+                },
+                function (roles, managers, departments, done) {
                     var query = "SELECT* FROM employees";
                     con.query(query, function (error, data) {
                         // it is arranged correspondingly acoording to the order
                         var d = JSON.parse(JSON.stringify(data));
 
-                        done(error, d, employees, departments)
+                        done(error, d, roles, managers,departments)
 
                     });
-                }] ,  function (err, d, employees, departments) {
+                }
+                ] ,  function (err, d,roles, managers,departments) {
 
                     if(err){
                         console.log(err)
@@ -108,7 +117,8 @@ EmployeeHandler.prototype.attach = function (router) {
                 //render page
                 response.render('employees', {
                     departmentData: departments,
-                    managerData: employees,
+                    managerData: managers,
+                    rolesData:roles,
                     employeeData: d
                 });
             })
