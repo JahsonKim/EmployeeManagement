@@ -43,18 +43,32 @@ EmployeeHandler.prototype.attach = function (router) {
      * Other routes under employees will go below here
      */
     router.get('/project', function(req,res) {
-        var query="SELECT* FROM projects";
-        con.query(query, function(error,data){
-            o=JSON.parse(JSON.stringify(data));
-            if(error)
-            {
-                throw error;
+        async.waterfall([
+            function(done){
+                var query="SELECT* FROM projects";
+                con.query(query, function(error,data){
+                    o=JSON.parse(JSON.stringify(data));
+                    done(error, o);
+                });
+            },
+            function(projects,done){
+                var query= "SELECT * FROM tasks";
+                con.query(query, function(error,data){
+                    s=JSON.parse(JSON.stringify(data));
+                    done(error, s, projects);
+                });
             }
-            else
-            {
-                res.render('project',{projectData:o});
+        ], function(err,s, projects){
+
+            if(err){
+                console.log(err)
+                return
+            }
+            else{
+                res.render('project',{projectData:projects,taskData:s})
             }
         });
+        
         
     });
     router.get('/payroll',function(req,res){

@@ -9,7 +9,15 @@
         <div class="container-fluid">
             <h1 class="text-center">Projects</h1>
             <!-- view tasks button -->
-            <button type="button" class="btn btn-outline-success btn-sm">view tasks</button>
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#myModal">view tasks</button>
+                    <button type="button" class="btn btn-outline-success btn-sm">ongoing tasks</button>
+                    <button type="button" class="btn btn-outline-success btn-sm">completed tasks</button>
+                    <button type="button" class="btn btn-outline-success btn-sm">task done by</button>
+                </div>
+            </div>
+            
         </div>
         <div class="container-fluid mt-2">
             <div class="row">
@@ -41,6 +49,51 @@
                 </div>
             </div>
         </div>
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-12">
+                <div class="modal fade " id="myModal">
+                <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h2 class="text-center">Tasks</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Task Id</th>
+                                <th>Title</th>
+                                <th>Descriptions</th>
+                                <th>Project ID</th>
+                                <th>Date assigned</th>
+                                <th>Due Date</th>
+                            </tr>
+                            <tbody>
+                              <% for(var i=0;i<taskData.length;i++){
+                                %>
+                                <tr>
+                                  <td class="text-center"><%=taskData[i].taskId %></td>
+                                  <td class="text-center"><%=taskData[i].title %></td>
+                                  <td class="text-center"><%=taskData[i].descriptions %></td>
+                                  <td class="text-center"><%=taskData[i].projectId %></td>
+                                  <td class="text-center"><%=taskData[i].date_assigned %></td>
+                                  <td class="text-center"><%=taskData[i].due_date %></td>  
+                                </tr>
+                              <%} %>  
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">close</button>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
     </main>
 </body>
 </html>
