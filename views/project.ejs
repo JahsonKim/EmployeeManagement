@@ -12,9 +12,9 @@
             <div class="row">
                 <div class="col-12">
                     <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#myModal">view tasks</button>
-                    <button type="button" class="btn btn-outline-success btn-sm">ongoing tasks</button>
-                    <button type="button" class="btn btn-outline-success btn-sm">completed tasks</button>
-                    <button type="button" class="btn btn-outline-success btn-sm">task done by</button>
+                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#Modale">ongoing tasks</button>
+                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#Modalane">completed tasks</button>
+                    <!-- <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#Modaleta">task done by</button> -->
                 </div>
             </div>
             
@@ -92,6 +92,85 @@
                 </div>
             </div>
         </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="modal fade" id="Modale">
+                        <div class="modal-dialog modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2>Ongoing tasks</h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                   <table class="table table-striped">
+                                        <tr>
+                                            <th>Employee Name</th>
+                                            <th>Title</th>
+                                            <th>Date assigned</th>
+                                        </tr>
+                                        <tbody>
+                                          <% for(var i=0;i.ongoingData.length;i++){
+                                            %>
+                                            <tr>
+                                                <td class="text-center"><%=ongoingData[i].employeeName %></td>
+                                                <td class="text-center"><%=ongoingData[i].title %></td>
+                                                <td class="text-center"><%=ongoingData[i].date_assigned %></td>
+                                            </tr>
+                                          <%}%>  
+                                        </tbody>
+                                   </table> 
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="modal fade" id="Modalane">
+                        <div class="modal-dialog modal-fullscreen">
+                           <div class="modal-content">
+                            <div class="modal-header">
+                                <h2>Completed tasks</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button> 
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-striped">
+                                    <tr>
+                                       <th>Employee Name</th>
+                                       <th>Department Name</th>
+                                       <th>Title</th>
+                                       <th>Due Date</th> 
+                                    </tr>
+                                    <tbody>
+                                     <% for(var i=0;i.completedData.length;i++){
+                                        %>
+                                        <tr>
+                                            <td class="text-center"><%=completedData[i].employeeId %></td>
+                                            <td class="text-center"><%=completedData[i].departmentId %></td>
+                                            <td class="text-center"><%=completedData[i].title %></td>
+                                            <td class="text-center"><%=completedData[i].due_date %></td>
+                                        </tr>
+
+                                     <%}  %> 
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">close</button> 
+                            </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </main>

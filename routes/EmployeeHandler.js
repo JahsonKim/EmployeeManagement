@@ -47,26 +47,45 @@ EmployeeHandler.prototype.attach = function (router) {
             function(done){
                 var query="SELECT* FROM projects";
                 con.query(query, function(error,data){
-                    o=JSON.parse(JSON.stringify(data));
+                   var o=JSON.parse(JSON.stringify(data));
                     done(error, o);
                 });
             },
             function(projects,done){
                 var query= "SELECT * FROM tasks";
                 con.query(query, function(error,data){
-                    s=JSON.parse(JSON.stringify(data));
+                   var s= JSON.parse(JSON.stringify(data));
                     done(error, s, projects);
                 });
+            },
+            function(tasks,projects,done){
+                var query= "SELECT E.employeeName,S.title,T.date_assigned from employees E join assignedTasks T on E.employeeId=T.employeeId join tasks S on S.taskId=T.taskId WHERE S.due_date>=now()";
+                con.query(query, function(error,data){
+                  var n= JSON.parse(JSON.stringify(data));
+                    done(error,n,tasks,projects);
+                });
+            },
+            function(n,tasks,projects,done){
+                var query="E.employeeName,D.departmentName,S.title,S.due_date FROM employees E join departments D on D.departmentId=E.departmentId join assignedtasks T on E.employeeId=T.employeeId join tasks S on S.taskId=T.taskId WHERE S.due_date<=now() order by D.departmentName ";
+                con.query(query, function(error,data){
+                 var c= JSON.parse(JSON.stringify(data));
+                    done(error,c,n,tasks,projects);
+                });
             }
-        ], function(err,s, projects){
+        ], function(err,c,n,tasks, projects){
 
             if(err){
                 console.log(err)
                 return
             }
-            else{
-                res.render('project',{projectData:projects,taskData:s})
-            }
+            
+                res.render('project',{
+                    projectData:projects,
+                    taskData:tasks,
+                    ongoingData:n,
+                    completedData: c
+                });
+            
         });
         
         
