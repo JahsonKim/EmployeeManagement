@@ -58,7 +58,19 @@ EmployeeHandler.prototype.attach = function (router) {
         
     });
     router.get('/payroll',function(req,res){
-        res.render('payroll');
+        var query="SELECT * FROM payroll";
+        con.query(query, function(error,data){
+            var a=JSON.parse(JSON.stringify(data));
+            if(error)
+            {
+                throw error;
+            }
+            else
+            {
+                res.render('payroll',{payrollData:a});
+            }
+        });
+        
     });
     router.get('/new-Employee', function (request, response) {
         response.render('new-Employee');
