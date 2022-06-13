@@ -21,6 +21,7 @@
         <div class="container-fluid mt-2">
           <div class="row">
               <div class="col-12">
+                <h2 class="text-center">Employees Details</h2>
                 <table class="table table-striped">
                     
                   <tr>
@@ -54,6 +55,67 @@
           </div>
           
         </div>
+        <div class="container-fluid mt-2">
+          <div class="row">
+            <div class="col-4 h-25">
+              <h2 class="text-center">Departments</h2>
+              <table class="table table-striped">
+                <tr>
+                  <th>Department ID</th>
+                  <th>Department Name</th>
+                </tr>
+                <tbody>
+                  <% for(var i=0;i<departmentData.length;i++){
+                    %>
+                    <tr>
+                      <td class="text-center"><%=departmentData[i].departmentId %></td>
+                      <td class="text-center"><%=departmentData[i].departmentName %></td>
+                    </tr>
+                  <%} %>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-4 h-25">
+              <h2 class="text-center">Managers</h2>
+              <table class="table table-striped">
+                <tr>
+                  <th>Department Name</th>
+                  <th>Department Manager</th>
+                </tr>
+                <tbody>
+                  <% for(var i=0;i<managerData.length;i++){
+                    %>
+                    <tr>
+                      <td class="text-center"><%=managerData[i].departmentName %></td>
+                      <td class="text-center"><%=managerData[i].manager %></td>
+                    </tr>
+                  <%} %>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-4 h-25">
+              <h2 class="text-center">Roles</h2>
+              <table class="table table-striped">
+                <tr>
+                  <th>Role ID</th>
+                  <th>Role Name</th>
+                </tr>
+                <tbody>
+                 <% for(var i=0;i<rolesData.length;i++){
+                  %>
+                  <tr>
+                    <td class="text-center"><%=rolesData[i].roleId%></td>
+                    <td class="text-center"><%=rolesData[i].roleName%></td>
+                  </tr>
+                 <%} %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+          
+          
+
     </main>
     <!-- end of main page -->
     <!-- start of footer -->

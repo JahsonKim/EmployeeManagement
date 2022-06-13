@@ -42,6 +42,24 @@ EmployeeHandler.prototype.attach = function (router) {
     /***
      * Other routes under employees will go below here
      */
+    router.get('/project', function(req,res) {
+        var query="SELECT* FROM projects";
+        con.query(query, function(error,data){
+            o=JSON.parse(JSON.stringify(data));
+            if(error)
+            {
+                throw error;
+            }
+            else
+            {
+                res.render('project',{projectData:o});
+            }
+        });
+        
+    });
+    router.get('/payroll',function(req,res){
+        res.render('payroll');
+    });
     router.get('/new-Employee', function (request, response) {
         response.render('new-Employee');
     });
@@ -128,7 +146,7 @@ EmployeeHandler.prototype.attach = function (router) {
 
 
     });
-
+    
 
 }
 
