@@ -105,30 +105,7 @@ EmployeeHandler.prototype.attach = function (router) {
         });
         
     });
-    router.get('/new-Employee', function (request, response) {
-        response.render('new-Employee');
-    });
-    // posting data of new employee in the database
-    router.post('/Addnew', function (request, response) {
-
-        var employeeId = request.body.employeeId;
-        var employeeName = request.body.employeeName;
-        var ssn_number = request.body.ssn_number;
-        var email = request.body.email;
-        var phone_number = request.body.phone_number;
-        var manager = request.body.manager;
-        var roleId = request.body.roleId;
-        var departmentId = request.body.departmentId;
-        // console.log(request.body);
-        var query = 'INSERT INTO employees (employeeId,employeeName,ssn_number,email,phone_number,manager,roleId,departmentId) VALUES("' + employeeId + '","' + employeeName + '","' + ssn_number + '","' + email + '","' + phone_number + '","' + manager + '","' + roleId + '","' + departmentId + '")';
-        // console.log(query);
-        con.query(query, function (error, result) {
-            if (error) throw error;
-            console.log("inserted successfully")
-
-        });
-        response.render('new-Employee');
-    });
+    
     router.get('/employees', function (request, response) {
 
         async.waterfall([
@@ -186,12 +163,29 @@ EmployeeHandler.prototype.attach = function (router) {
                 });
             })
 
-
-
-
-
     });
     
+    // posting data of new employee in the database
+    router.post('/Addnew', function (request, response) {
+
+        var employeeId = request.body.employeeId;
+        var employeeName = request.body.employeeName;
+        var ssn_number = request.body.ssn_number;
+        var email = request.body.email;
+        var phone_number = request.body.phone_number;
+        var manager = request.body.manager;
+        var roleId = request.body.roleId;
+        var departmentId = request.body.departmentId;
+        // console.log(request.body);
+        var query = 'INSERT INTO employees (employeeId,employeeName,ssn_number,email,phone_number,manager,roleId,departmentId) VALUES("' + employeeId + '","' + employeeName + '","' + ssn_number + '","' + email + '","' + phone_number + '","' + manager + '","' + roleId + '","' + departmentId + '")';
+        // console.log(query);
+        con.query(query, function (error, result) {
+            if (error) throw error;
+            console.log("inserted successfully")
+            // response.send({title:'sucessfully added'});
+        });
+        response.render('index');
+    });
 
 }
 

@@ -15,7 +15,8 @@
           <!-- heading 1 for employees -->
             <h1 class="text-center">Employees</h1>
             <!-- add new employees button -->
-            <button type="button" class="btn btn-outline-success btn-sm">Add new</button>
+            <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#New">Add new</button>
+            
             
         </div>
         <div class="container-fluid mt-2">
@@ -113,7 +114,66 @@
             </div>
           </div>
         </div>
-          
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="modal fade" id="New">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2>Add new employee</h2>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="Addnew" method="POST" >
+                        <div class="row">
+                          <div class="col">
+                            <input type="number" class="form-control" name="employeeId" placeholder="Enter Employee Number">
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control" name="employeeName" placeholder="Enter Employee Name">
+                          </div>
+                        </div>
+                        <div class="row mt-3">
+                          <div class="col">
+                            <input type="number" class="form-control" name="ssn_number" placeholder="Enter Employee SSN">
+                          </div>
+                          <div class="col">
+                            <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
+                          </div>
+                        </div>
+                        <div class="row mt-3">
+                          <div class="col">
+                            <input type="number" class="form-control" name="phone_number" placeholder="+254 114------00">
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control" name="manager" placeholder="Enter Employee Manager">
+                          </div>
+                        </div>
+                        <div class="row mt-3">
+                          <div class="col">
+                            <input type="number" class="form-control" name="roleId" placeholder="Enter Role ID">
+                          </div>
+                          <div class="col">
+                            <input type="number" class="form-control" name="departmentId" placeholder="Enter Department ID">
+                          </div>
+                        </div>
+                        <div class="row mt-3">
+                          <div class="row">
+                            <input type="submit" class="btn btn-outline-success btn-sm " value="Add"> 
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
           
 
     </main>
