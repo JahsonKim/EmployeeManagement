@@ -65,14 +65,14 @@ EmployeeHandler.prototype.attach = function (router) {
                     done(error,n,tasks,projects);
                 });
             },
-            function(n,tasks,projects,done){
-                var query="E.employeeName,D.departmentName,S.title,S.due_date FROM employees E join departments D on D.departmentId=E.departmentId join assignedtasks T on E.employeeId=T.employeeId join tasks S on S.taskId=T.taskId WHERE S.due_date<=now() order by D.departmentName ";
-                con.query(query, function(error,data){
+            function(going,tasks,projects,done){
+                var query="SELECT E.employeeName,D.departmentName,S.title,S.due_date FROM employees E join departments D on D.departmentId=E.departmentId join assignedtasks T on E.employeeId=T.employeeId join tasks S on S.taskId=T.taskId WHERE S.due_date<=now() order by D.departmentName ";
+                con.query(query, function(error,data){    
                  var c= JSON.parse(JSON.stringify(data));
-                    done(error,c,n,tasks,projects);
+                    done(error,c,going,tasks,projects);
                 });
             }
-        ], function(err,c,n,tasks, projects){
+        ], function(err,c,going,tasks, projects){
 
             if(err){
                 console.log(err)
@@ -82,7 +82,7 @@ EmployeeHandler.prototype.attach = function (router) {
                 res.render('project',{
                     projectData:projects,
                     taskData:tasks,
-                    ongoingData:n,
+                    ongoingData:going,
                     completedData: c
                 });
             

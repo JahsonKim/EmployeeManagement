@@ -111,10 +111,10 @@
                                             <th>Date assigned</th>
                                         </tr>
                                         <tbody>
-                                          <% for(var i=0;i.ongoingData.length;i++){
+                                          <% for(var i=0;i<ongoingData.length;i++){
                                             %>
                                             <tr>
-                                                <td class="text-center"><%=ongoingData[i].employeeName %></td>
+                                                <td class="text-center"><%=ongoingData[i].employeeId %></td>
                                                 <td class="text-center"><%=ongoingData[i].title %></td>
                                                 <td class="text-center"><%=ongoingData[i].date_assigned %></td>
                                             </tr>
@@ -147,14 +147,14 @@
                                        <th>Employee Name</th>
                                        <th>Department Name</th>
                                        <th>Title</th>
-                                       <th>Due Date</th> 
+                                       <th>Date completed</th> 
                                     </tr>
                                     <tbody>
-                                     <% for(var i=0;i.completedData.length;i++){
+                                     <% for(var i=0;i<completedData.length;i++){
                                         %>
                                         <tr>
-                                            <td class="text-center"><%=completedData[i].employeeId %></td>
-                                            <td class="text-center"><%=completedData[i].departmentId %></td>
+                                            <td class="text-center"><%=completedData[i].employeeName %></td>
+                                            <td class="text-center"><%=completedData[i].departmentName %></td>
                                             <td class="text-center"><%=completedData[i].title %></td>
                                             <td class="text-center"><%=completedData[i].due_date %></td>
                                         </tr>
