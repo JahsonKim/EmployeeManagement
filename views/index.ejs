@@ -14,8 +14,61 @@
       <div class="container-fluid bg-white">
         <h1 class="text-center p-0.5 bg-success text-white">Employee Management</h1>
         <div class="d-grid">
-          <button type="button" class="btn btn-outline-success justify-content-center">Login</button>
+          <button type="button" class="btn btn-outline-success justify-content-center" data-bs-toggle="modal" data-bs-target="#Login">Login</button>
         </div> 
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <div class="modal fade " id="Login" style="margin-top:60px;">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="span-4"></div>
+                      <div class="span-4">
+                        <h1  class=" text-dark">&copy;LOGIN</h1>
+                      </div>
+                      <div class="span-4">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button> 
+                      </div>
+                      
+                    </div>
+                    <div class="modal-body">
+                        <form action="" class="was-validated">
+                          <div class="form-floating mb-3 mt-3">
+                            <input type="email" class="form-control" placeholder="example@gmail.com" id="email" name="email" required>
+                            <label for="email">Email</label>
+                            <div class="valid-feedback">valid</div>
+                            <div class="invalid-feedback">fill in the format of the exaple@gmail.com</div>
+                          </div>
+                          
+                          <div class="form-floating mb-3 mt-3">
+                            <input type="password" class="form-control" placeholder=" ******** " id="password" name="password" required>
+                            <label for="password">Password</label>
+                            
+                              <div class="valid-feedback">valid</div>
+                              <div class="invalid-feedback">please fill the correct password</div>
+              
+                            
+                          </div>
+                          <div class="form-buttons">
+                            
+
+                              <button class="btn btn-outline-success btn-sm">login</button>
+                            
+                            
+                          </div>
+                        </form>
+                        
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">close</button> 
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <!-- end of main page -->
