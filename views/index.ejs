@@ -34,7 +34,7 @@
                       
                     </div>
                     <div class="modal-body">
-                        <form action="" class="was-validated">
+                        <form action="Login" method="POST" class="was-validated">
                           <div class="form-floating mb-3 mt-3">
                             <input type="email" class="form-control" placeholder="example@gmail.com" id="email" name="email" required>
                             <label for="email">Email</label>
@@ -87,7 +87,13 @@
                     </div>
                   </div>
                   <div class="modal-body">
-                    <form action="" class="was-validated">
+                    <form action="register" method="POST" class="was-validated">
+                      <div class="form-floating mb-3 mt-3">
+                        <input type="number" class="form-control" placeholder="employeeId number" id="employeeId" name="employeeId" required>
+                        <label for="employeeId">employee ID</label>
+                        <div class="valid-feedback">valid</div>
+                        <div class="invalid-feedback">please type your employee id number</div>
+                      </div>
                       <div class="form-floating mb-3 mt-3">
                         <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
                         <label for="username">User name</label>
@@ -98,11 +104,11 @@
                         <input type="email" class="form-control" placeholder="your email" id="email" name="email" required>
                         <label for="email">email</label>
                         <div class="valid-feedback">valid</div>
-                        <div class="invalid-feedback">Type email correctly</div>
+                        <div class="invalid-feedback">Type your email correctly</div>
                       </div>
                       <div class="form-floating mb-3 mt-3">
-                        <input type="password" class="form-control" placeholder="create password" id="password" name="password" required>
-                        <label for="password">password</label>
+                        <input type="password" class="form-control" placeholder="create password" id="pswd" name="pswd" required>
+                        <label for="pswd">password</label>
                         <div class="valid-feedback">valid</div>
                         <div class="invalid-feedback">please create your password</div>
                       </div>

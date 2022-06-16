@@ -1,6 +1,8 @@
 const express = require('express');
 var path = require('path');
-var bodyParser = require('body-parser'); 
+var bodyParser = require('body-parser');
+var session = require('express-session'); 
+var {v4: uuidv4} = require('uuid');
 const app = express();  
 var router = express.Router();
  
@@ -14,6 +16,13 @@ const server = app.listen(4589, () => {
 // This code sets static files such as css and external js which are in the public folder
 
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/public/assets')));
+
+app.use(session({
+    secret:uuidv4(),
+    resave:false,
+    saveUninitialized:true
+}));
 //This line tells the app where the html pages will be found
 const viewsPath = path.join(__dirname, '/views');
 app.set('view engine', 'ejs');
@@ -23,7 +32,7 @@ app.set('views', viewsPath);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 })); 
 
 

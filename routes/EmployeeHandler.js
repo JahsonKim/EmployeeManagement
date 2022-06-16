@@ -186,6 +186,33 @@ EmployeeHandler.prototype.attach = function (router) {
         });
         response.render('index');
     });
+    // for user authentication registration
+    router.post('/register',(req,res)=>{
+        var employeeId = req.body.employeeId;
+        var username = req.body.username;
+        var email = req.body.email;
+        var pswd = req.body.pswd;
+        // console.log(req.body);
+        var query ='INSERT INTO auth (employeeId,username,email,pswd) VALUES("'+ employeeId +'","'+ username +'","'+ email +'","'+ pswd +'")'
+
+        con.query(query, (error, result)=>{
+            if(error) throw error;
+            console.log("registered successfully")
+        });
+        res.render('index');
+    });
+    // for session login
+    // router.post('/login',(req,res)=>{
+    //     if(req.body.email==con.email&&req.body.pswd==con.pswd)
+    //     {
+    //         req.session.user= req.body.email;
+    //         res.redirect('projects');
+    //     }
+    //     else
+    //     {
+    //         res.end({h2:'invalid login'});
+    //     }
+    // });
 
 }
 
