@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var async = require('async');
 var con = require('../connect');
-
+var auth=require('../auth');
 
 
 var EmployeeHandler = function () {

@@ -55,6 +55,7 @@
                             
 
                               <button class="btn btn-outline-success btn-sm">login</button>
+                              <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#Register">Register</button>
                             
                             
                           </div>
@@ -65,6 +66,55 @@
                       <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">close</button> 
                     </div>
                   </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <div class="modal fade " id="Register" >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="span-4"></div>
+                    <div class="span-4">
+                      <h1  class=" text-dark">&copy;REGISTER</h1>
+                    </div>
+                    <div class="span-4">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button> 
+                    </div>
+                  </div>
+                  <div class="modal-body">
+                    <form action="" class="was-validated">
+                      <div class="form-floating mb-3 mt-3">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
+                        <label for="username">User name</label>
+                        <div class="valid-feedback">valid</div>
+                        <div class="invalid-feedback">Please create your username</div>
+                      </div>
+                      <div class="form-floating mb-3 mt-3">
+                        <input type="email" class="form-control" placeholder="your email" id="email" name="email" required>
+                        <label for="email">email</label>
+                        <div class="valid-feedback">valid</div>
+                        <div class="invalid-feedback">Type email correctly</div>
+                      </div>
+                      <div class="form-floating mb-3 mt-3">
+                        <input type="password" class="form-control" placeholder="create password" id="password" name="password" required>
+                        <label for="password">password</label>
+                        <div class="valid-feedback">valid</div>
+                        <div class="invalid-feedback">please create your password</div>
+                      </div>
+                      <div class="form-button">
+                        <button class="btn btn-outline-success btn-sm">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">close</button> 
+                  </div>
+                </div>
               </div>
             </div>
           </div>
