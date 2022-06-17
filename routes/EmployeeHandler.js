@@ -202,17 +202,22 @@ EmployeeHandler.prototype.attach = function (router) {
         res.render('index');
     });
     // for session login
-    // router.post('/login',(req,res)=>{
-    //     if(req.body.email==con.email&&req.body.pswd==con.pswd)
-    //     {
-    //         req.session.user= req.body.email;
-    //         res.redirect('projects');
-    //     }
-    //     else
-    //     {
-    //         res.end({h2:'invalid login'});
-    //     }
-    // });
+    router.post('/login',(req,res)=>{
+        var email = req.body.email;
+        var pswd = req.body.pswd;
+        con.query('SELECT email,pswd FROM auth where email=? and pswd=?',[email,pswd],(error,result,fields)=>{
+            if(result)
+            {
+                res.redirect('project');
+                
+            }
+            else{
+                res.render('index');
+            }
+            res.end();
+        });
+        
+    });
 
 }
 
